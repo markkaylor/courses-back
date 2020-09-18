@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "lessons",
+  "info": {
+    "name": "lesson"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "course": {
+      "model": "course",
+      "via": "lessons"
+    },
+    "youtubeVideoId": {
+      "type": "string"
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "description": {
+      "type": "text"
+    },
+    "completed_lessons": {
+      "collection": "completed-lessons",
+      "via": "lesson"
+    }
+  }
+}

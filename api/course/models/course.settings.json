@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "courses",
+  "info": {
+    "name": "course"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "lessons": {
+      "via": "course",
+      "collection": "lesson"
+    },
+    "users": {
+      "via": "courses",
+      "plugin": "users-permissions",
+      "collection": "user",
+      "dominant": true
+    },
+    "slug": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "completed_lessons": {
+      "via": "course",
+      "collection": "completed-lessons"
+    }
+  }
+}

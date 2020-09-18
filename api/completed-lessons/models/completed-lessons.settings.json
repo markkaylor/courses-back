@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "completed_lessons",
+  "info": {
+    "name": "completed lessons"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "course": {
+      "model": "course",
+      "via": "completed_lessons"
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "completed_lessons"
+    },
+    "lesson": {
+      "via": "completed_lessons",
+      "model": "lesson"
+    },
+    "userYoutubeVideo": {
+      "type": "string"
+    }
+  }
+}
